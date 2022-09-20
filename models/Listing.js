@@ -34,6 +34,13 @@ Listing.init(
                 key: 'id',
             }
         },
+        category_id: {
+            type: DataTypes.INTEGER,
+            refrences: {
+                model: 'category',
+                key: 'id',
+            }
+        },
     },
     {
         sequelize,
