@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS logansList_db;
+CREATE DATABASE logansList_db;
