@@ -1,7 +1,6 @@
 // paths linking to the sepcific seed files
 const seedListings = require('./listing-seeds.js');
-// const seedUsers = require('./user-seeds');
-// const seedFavorites = require('./favorite-seeds');
+const seedUsers = require('./user-seeds');
 
 
 // require sequelize
@@ -14,8 +13,6 @@ const seedAll = async () => {
     console.log('\n----- LISTINGS SEEDED -----\n');
     await seedUsers();
     console.log('\n----- USERS SEEDED -----\n');
-    await seedFavorites();
-    console.log('\n----- FAVORITES SEEDED -----\n');
 
     process.exit(0);
 };
