@@ -61,4 +61,6 @@ router.post('/logout', (req, res) => {
   }
 });
 
+//view all users
+
 module.exports = router;
