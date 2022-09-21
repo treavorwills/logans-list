@@ -1,5 +1,5 @@
 // paths linking to the sepcific seed files
-const seedListings = require('./listing-seeds');
+const seedListings = require('./listing-seeds.js');
 const seedUsers = require('./user-seeds');
 const seedFavorites = require('./favorite-seeds');
 
