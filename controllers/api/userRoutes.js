@@ -41,7 +41,7 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      
+
       res.json({ user: userData, message: 'You are now logged in!' });
     });
 
@@ -61,6 +61,64 @@ router.post('/logout', (req, res) => {
   }
 });
 
-//view all users
+//View all users
+router.get('/all', async (req, res) => {
+  try {
+    const userData = await User.findAll({
+      attributes: { exclude: ['password'] }
+    });
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//View a specific user
+router.get('/:id', async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.params.id, {
+      attributes: { exclude: ['password'] }
+    });
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Update a users info
+router.put('/:id', async (req, res) => {
+  try {
+    const updatedUser = await User.update(
+      {
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+
+    res.status(200).json(updatedUser);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//Delete a user
+router.delete('/:id', async (req, res) => {
+  try {
+    const deleteUser = await User.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.status(200).json(deleteUser);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;
