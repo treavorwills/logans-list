@@ -12,7 +12,7 @@ Favorite.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        seller_id: {
+        user_id: {
             type: DataTypes.INTEGER,
             refrences: {
                 model: 'user',

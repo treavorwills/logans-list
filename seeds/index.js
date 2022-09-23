@@ -1,11 +1,11 @@
-// paths linking to the sepcific seed files
+// paths linking to the specific seed files
 const seedListings = require('./listing-seeds.js');
 const seedUsers = require('./user-seeds');
-
+const seedCategory = require('./category-seeds.js');
 
 // require sequelize
 const sequelize = require('../config/connection');
-const seedCategory = require('./category-seeds.js');
+
 
 const seedAll = async () => {
     await sequelize.sync({ force: true });
