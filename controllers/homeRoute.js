@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Listing, User } = require('../models')
+const { Listing, User, Category } = require('../models')
 const withAuth = require('../utils/auth');
 
 //Render the homepage with listings
@@ -55,14 +55,32 @@ router.get('/profile', withAuth, async (req, res) => {
     }
 });
 
+//Render categories page with relevent listings 
+router.get('/categories/:id', async (req, res) => {
+    try {
+        const categoryData = await Category.findByPk(req.params.id, {
+            include: [{ model: Listing }]
+        });
+        const categories = categoryData.map((categories) => categories.get({ plain: true }));
+
+        res.render('categories', {
+            categories,
+            logged_in: req.session.logged_in
+        })
+        res.status(200).json(categoryData)
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 //redirect login from withAuth if theyre not logged in 
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
-      res.redirect('/profile');
-      return;
+        res.redirect('/profile');
+        return;
     }
-  
+
     res.render('login');
-  });
+});
 
 module.exports = router;
