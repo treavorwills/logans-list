@@ -28,7 +28,7 @@ Listing.init(
         photo: {
             type: DataTypes.STRING,
         },
-        seller_id: {
+        user_id: {
             type: DataTypes.INTEGER,
             refrences: {
                 model: 'user',
