@@ -11,4 +11,6 @@ Favorite.hasOne(Listing);
 
 Favorite.hasMany(User);
 
+Category.hasMany(Listing);
+
 module.exports = {Listing, User, Favorite, Category};
