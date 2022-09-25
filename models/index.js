@@ -1,7 +1,8 @@
 const Favorite = require('./Favorite');
 const Listing = require('./Listing');
 const User = require('./User');
-const Category = require('./Category')
+const Category = require('./Category');
+const Image = require('./Image');
 
 User.hasMany(Favorite);
 
@@ -13,4 +14,8 @@ Favorite.hasMany(User);
 
 Category.hasMany(Listing);
 
-module.exports = {Listing, User, Favorite, Category};
+Listing.hasMany(Image);
+
+Image.hasOne(Listing);
+
+module.exports = {Listing, User, Favorite, Category, Image};
