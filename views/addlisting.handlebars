@@ -1,44 +1,59 @@
-{{#if loggedIn}}
 <div class="flex justify center w-full mt-10 h-12 input-group flex-nonwrap  items-stretch h-full w-full mb-4 ">
-        <form class="w-4/6 mx-10 md:w-1/2 md:mx-0 lg:w-1/3 h-full"action="/action_page.php">
-            <fieldset>
-              <legend>Add a new "L" product:</legend>
-              {{!-- Name input --}}
-              <label for="name">Name:</label><br>
-              <input class="h-full form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 hover:grow hover:shadow-lg focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none" type="text" id="name" name="name" value="John Doe"><br>
-              {{!-- product name input --}}
-              <label for="productName">Product Name:</label><br>
-              <input class="h-full form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 hover:grow hover:shadow-lg focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none" type="text" id="productName" name="productName" value="Antique Lamp"><br><br>
-              {{!-- Price input --}}
-              <label for="price">Price:</label>
-              <input class="h-full form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 hover:grow hover:shadow-lg focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none" type="text" id="price" name="price" value="20.00">
-              {{!-- category dropdown --}}
-              <label for="categories">Choose a category:</label>
-              <select class="h-full form-control relative flex-auto min-w-0 block w-full mt-5 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 hover:grow hover:shadow-lg focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none" id="categories" name="categories">
-                  <option value="Lamp">Lamps</option>
-                  <option value="Live Animal">Live Animals</option>
-                  <option value="Ladder">Ladder</option>
-                  <option value="Locomotive">Locomotive</option>
-                  <option value="Locks">Locks</option>
-                  <option value="Land">Land</option>
-                  <option value="Lemonade">Lemonade</option>
-                  <option value="Lipstick">Lipstick</option>
-                  <option value="Laser pointer">Laser pointers</option>
-              </select>
-              {{!-- product description --}}
-              <textarea class="h-full form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 hover:grow hover:shadow-lg focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none" name="description" rows="10" cols="30">
+  <form id="newListingForm" class="w-4/6 mx-10 md:w-1/2 md:mx-0 lg:w-1/3 h-full">
+    <fieldset>
+      <legend>Add a new "L" product:</legend>
+      {{!-- Name input --}}
+      <label for="name">Name:</label><br>
+      <input
+        class="h-full form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 hover:grow hover:shadow-lg focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
+        type="text" id="listing-name" name="listing-name" value="John Doe"><br>
+      {{!-- product name input --}}
+      <label for="productName">Product Name:</label><br>
+      <input
+        class="h-full form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 hover:grow hover:shadow-lg focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
+        type="text" id="productName" name="productName" value="Antique Lamp"><br><br>
+      {{!-- Price input --}}
+      <label for="price">Price:</label>
+      <input
+        class="h-full form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 hover:grow hover:shadow-lg focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
+        type="text" id="lisitng-price" name="price" value="20.00">
+      {{!-- category dropdown --}}
+      <label for="categories">Choose a category:</label>
+      <select
+        class="h-full form-control relative flex-auto min-w-0 block w-full mt-5 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 hover:grow hover:shadow-lg focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
+        id="lisitng-category" name="categories">
+        <option value="Lamp">Lamps</option>
+        <option value="Live Animal">Live Animals</option>
+        <option value="Ladder">Ladder</option>
+        <option value="Locomotive">Locomotive</option>
+        <option value="Locks">Locks</option>
+        <option value="Land">Land</option>
+        <option value="Lemonade">Lemonade</option>
+        <option value="Lipstick">Lipstick</option>
+        <option value="Laser pointer">Laser pointers</option>
+      </select>
+      {{!-- product description --}}
+      <textarea
+        class="h-full form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 hover:grow hover:shadow-lg focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
+        id="listing-description" name="description" rows="10" cols="30">
                 Please include a description for your product here.
                 </textarea>
-              {{!-- image input --}}
-              <label for="myfile">Select a file:</label>
-              <input class="h-full form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 hover:grow hover:shadow-lg focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none" type="file" id="myfile" name="myfile">
-              {{!-- submit button --}}
-              <input class="btn inline-block px-6 py-2 border-2 border-black text-black text-lg font-medium leading-tight uppercase hover:bg-white hover:grow hover:shadow-lg focus:outline-none focus:ring-0 transition duration-150 ease-in-out" type="submit" value="Submit">
-              {{!-- reset button --}}
-              <input class="btn inline-block px-6 py-2 border-2 border-black text-black text-lg font-medium leading-tight uppercase hover:bg-white hover:grow hover:shadow-lg focus:outline-none focus:ring-0 transition duration-150 ease-in-out" type="reset" value="Reset">
-            </fieldset>
-          </form>
-    </div>
-{{else}}
-<a href"/login">You must login first to view this page</a>
-{{/if}}
+      {{!-- image input --}}
+      <img id="display" src="" />
+      <label for="myfile">Select a file:</label>
+      <input id="fileSubmit"
+        class="h-full form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 hover:grow hover:shadow-lg focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
+        type="file" accept="image/png, image/jpeg" id="myfile" name="myfile">
+      {{!-- submit button --}}
+      <input
+        class="btn inline-block px-6 py-2 border-2 border-black text-black text-lg font-medium leading-tight uppercase hover:bg-white hover:grow hover:shadow-lg focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+        type="submit" value="Submit">
+      {{!-- reset button --}}
+      <input
+        class="btn inline-block px-6 py-2 border-2 border-black text-black text-lg font-medium leading-tight uppercase hover:bg-white hover:grow hover:shadow-lg focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+        type="reset" value="Reset">
+    </fieldset>
+  </form>
+</div>
+
+<script src="/js/profile.js"></script>
