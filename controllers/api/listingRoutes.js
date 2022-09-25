@@ -5,16 +5,12 @@ module.exports = router;
 
 // GET all listings
 router.get('/', async (req,res) => {
-    try {
-        const listingData = await Listing.findAll();
-        if (!listingData){
-            res.status(404).json({message: 'No listings found!'});
-            return;
-        }
-        res.status(200).json(listingData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
+        const listingData = await Listing.findAll().catch((err) => {
+            res.json(err);
+        });
+        // const listings = listingData.map((listing) => listing.get({ plain: true }));
+        // res.render('all', { listings });
+        res.json(listingData);
 });
 
 // GET a single listing
