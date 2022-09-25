@@ -25,9 +25,6 @@ Listing.init(
                 isDecimal: true,
             }
         },
-        photo: {
-            type: DataTypes.STRING,
-        },
         user_id: {
             type: DataTypes.INTEGER,
             refrences: {
