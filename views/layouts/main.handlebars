@@ -7,8 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Logan's List</title>
     <script src="https://kit.fontawesome.com/1a76f66fbe.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
-	<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
+    {{!--
+    <link rel="stylesheet" href="/style.css"> --}}
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
 
 </head>
@@ -19,22 +20,25 @@
         <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
             <!-- Menu bar when screen is smallest option -->
             <label for="menu-toggle" class="cursor-pointer md:hidden block hover:text-black">
-                    <title>menu</title>
-                    <i class="fas fa-bars"></i>
+                <title>menu</title>
+                <i class="fas fa-bars"></i>
             </label>
             <input class="hidden" type="checkbox" id="menu-toggle" />
 
             <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
                 <nav>
                     <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
-                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">Shop</a></li>
-                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#about">About</a></li>
+                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
+                                href="#">Shop</a></li>
+                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
+                                href="#about">About</a></li>
                     </ul>
                 </nav>
             </div>
 
-            <div class="order-1 md:order-2" >
-                <a class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
+            <div class="order-1 md:order-2">
+                <a class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl "
+                    href="#">
                     LOGAN'S LIST
                 </a>
             </div>
@@ -71,7 +75,8 @@
                         <h3 class="font-bold text-gray-900">Love our site? See it here:</h3>
                         <ul class="list-reset items-center pt-3">
                             <li>
-                                <a class="inline-block no-underline hover:text-black hover:underline py-1" href="https://github.com/treavorwills/logans-list">github.com/logans-list</a>
+                                <a class="inline-block no-underline hover:text-black hover:underline py-1"
+                                    href="https://github.com/treavorwills/logans-list">github.com/logans-list</a>
                             </li>
                         </ul>
                     </div>

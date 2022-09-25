@@ -83,4 +83,8 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
+router.get('/add', (req, res) => {
+    res.render('addlisting');
+});
+
 module.exports = router;
