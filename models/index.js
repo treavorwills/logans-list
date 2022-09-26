@@ -14,8 +14,4 @@ Favorite.hasMany(User);
 
 Category.hasMany(Listing);
 
-Listing.hasMany(Image);
-
-Image.hasOne(Listing);
-
-module.exports = {Listing, User, Favorite, Category, Image};
+module.exports = { Listing, User, Favorite, Category, Image };
