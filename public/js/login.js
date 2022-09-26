@@ -37,5 +37,5 @@ const signupFormSwitch = async (event) => {
 
 };
 
-// document.querySelector('login-form').addEventListener('submit', loginFormHandler);
+document.querySelector('#login-form').addEventListener('submit', loginFormHandler);
 document.getElementById('signup-btn').addEventListener('click', signupFormSwitch);
