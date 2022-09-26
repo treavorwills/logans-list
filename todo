@@ -1,0 +1,12 @@
+// TODO add home icon to the categories so it returns to an all listings from all categories view  
+// TODO working search input, needs to search all listings and return any listing containing that word or words the user entered 
+// TODO clean up single listing view(everything centered in a decending column)
+// TODO about button functionailty, replace, delete or give it purpose 
+// TODO decide wether we need the homepage handlebar, main page and home both render categories and search bar
+// TODO cleanup login screen make it render in the center and not overlap
+// TODO center signup page
+// Submit functionality for adduser
+
+
+//less important 
+//TODO main page with all listings orginized by category
