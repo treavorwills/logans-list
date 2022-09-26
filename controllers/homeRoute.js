@@ -41,8 +41,7 @@ router.get('/listing/:id', async (req, res) => {
 router.get('/profile', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {
-            attributes: { exclude: ['password'] },
-            include: [{ model: Listing }],
+            attributes: { exclude: ['password'] }
         });
         const user = userData.get({ plain: true });
 
@@ -123,8 +122,16 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
+//Signup route
+router.get('/signup', (req, res) => {
+    res.render('adduser');
+});
+
+// Add listing route
 router.get('/add', (req, res) => {
     res.render('addlisting');
 });
+
+
 
 module.exports = router;
