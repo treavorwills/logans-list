@@ -9,14 +9,14 @@ router.get('/', async (req, res) => {
     });
     const listings = listingData.map((listing) => listing.get({ plain: true }));
 
-    // res.render('homepage', {
-    //     listings,
-    //     logged_in: req.session.logged_in
-    // });
-    res.render('./partials/listings', {
+    res.render('homepage', {
         listings,
         logged_in: req.session.logged_in
     });
+    // res.render('./partials/listings', {
+    //     listings,
+    //     logged_in: req.session.logged_in
+    // });
 });
 
 //Render page for the listing you choose 
