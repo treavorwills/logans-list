@@ -23,20 +23,20 @@ const imageHandler = async (event) => {
     })
         .then(response => response.json())
         .then((data) => {
-            const url = data.secure_url;
-            newListingHandler(url);
+            const image_url = data.secure_url;
+            newListingHandler(image_url);
         })
         .catch(err => console.error(err));
 };
 
 //Handles the creation of a new listing 
-const newListingHandler = async (url) => {
+const newListingHandler = async (image_url) => {
 
     const name = document.querySelector('#listing-name').value.trim();
     const description = document.querySelector('#listing-description').value.trim();
     const price = document.querySelector('#lisitng-price').value.trim();
     const category = document.querySelector('#lisitng-category').value.trim();
-    const image_id = name
+
     let category_id;
 
     if (category === 'Lamp') {
@@ -69,25 +69,13 @@ const newListingHandler = async (url) => {
 
     const listingResponse = await fetch('/api/listing', {
         method: 'POST',
-        body: JSON.stringify({ name, description, price, category_id, image_id }),
+        body: JSON.stringify({ name, description, price, category_id, image_url }),
         headers: { 'Content-Type': 'application/json' },
     });
     if (listingResponse.ok) {
         document.location.replace('/profile');
     } else {
         alert(listingResponse.statusText);
-    }
-
-
-    const imageResponse = await fetch('/api/upload', {
-        method: 'POST',
-        body: JSON.stringify({ name, url }),
-        headers: { 'Content-Type': 'application/json' },
-    });
-    if (imageResponse.ok) {
-        document.location.replace('/profile');
-    } else {
-        alert(imageResponse.statusText);
     }
 };
 

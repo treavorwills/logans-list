@@ -39,12 +39,8 @@ Listing.init(
                 key: 'id',
             }
         },
-        image_id: {
+        image_url: {
             type: DataTypes.STRING,
-            refrences: {
-                model: 'image',
-                key: 'name',
-            }
         },
     },
     {

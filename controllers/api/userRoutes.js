@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Listing } = require('../../models');
 
 //Create new user
 router.post('/', async (req, res) => {
@@ -77,7 +77,7 @@ router.get('/all', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const userData = await User.findByPk(req.params.id, {
-      attributes: { exclude: ['password'] }
+      attributes: { exclude: ['password'] },
     });
     res.status(200).json(userData);
   } catch (err) {

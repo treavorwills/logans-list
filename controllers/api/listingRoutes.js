@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Listing, User, Image } = require('../../models');
+const { Listing, User } = require('../../models');
 
 module.exports = router;
 
@@ -7,7 +7,7 @@ module.exports = router;
 router.get('/', async (req, res) => {
     try {
         const listingData = await Listing.findAll({
-            include: [{ model: User, Image, attributes: ['name'] }],
+            include: [{ model: User, attributes: ['name'] }],
         });
         res.status(200).json(listingData);
     } catch (err) {
