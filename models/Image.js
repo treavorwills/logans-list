@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection.js');
 
-class Image extends Model {}
+class Image extends Model { }
 
 Image.init(
     {
@@ -16,7 +16,7 @@ Image.init(
             type: DataTypes.STRING
         },
         url: {
-            type:DataTypes.STRING
+            type: DataTypes.STRING
         },
     },
     {
@@ -25,7 +25,7 @@ Image.init(
         freezeTableName: true,
         underscored: true,
         modelName: 'image',
-    }  
+    }
 );
 
 module.exports = Image;

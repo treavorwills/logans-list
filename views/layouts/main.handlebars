@@ -28,8 +28,9 @@
             <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
                 <nav>
                     <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
-                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
-                                href="#">Shop</a></li>
+                        <li><button id="home-btn"
+                                class="inline-block no-underline hover:text-black hover:underline py-2 px-4">Home</button>
+                        </li>
                         <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
                                 href="#about">About</a></li>
                     </ul>
@@ -45,9 +46,9 @@
 
             <div class="order-2 md:order-3 flex items-center" id="nav-content">
                 <!-- profile page -->
-                <a class="inline-block no-underline hover:text-black" href="#">
+                <button class="inline-block no-underline hover:text-black" id="profile-button">
                     <i class="fas fa-user" width="24" height="24" viewBox="0 0 24 24"></i>
-                </a>
+                </button>
                 <!-- favorites page -->
                 <a class="pl-3 inline-block no-underline hover:text-black" href="#">
                     <i class="far fa-heart" width="24" height="24" viewBox="0 0 24 24"></i>
@@ -76,49 +77,47 @@
         <!-- Categories section -->
         <div class="order-2 mt-5 md:order-3 flex justify-center" id="categories">
             <!-- Lamp category -->
-            <a class="inline-block no-underline hover:text-black" href="#">
+            <a class="inline-block no-underline hover:text-black" href="../categories/lamps">
                 <i class="fas fa-lightbulb"></i>
             </a>
             <!-- Live animal category -->
-            <a class="pl-3 inline-block no-underline hover:text-black" href="#">
+            <a class="pl-3 inline-block no-underline hover:text-black" href="../categories/live-animals">
                 <i class="fas fa-paw"></i>
             </a>
             <!-- ladder category -->
-            <a class="pl-3 inline-block no-underline hover:text-black" href="#">
+            <a class="pl-3 inline-block no-underline hover:text-black" href="../categories/ladders">
                 <i class="fas fa-swimming-pool"></i>
             </a>
             <!-- Locomotive category -->
-            <a class="pl-3 inline-block no-underline hover:text-black" href="#">
+            <a class="pl-3 inline-block no-underline hover:text-black" href="../categories/locomotives">
                 <i class="fas fa-train"></i>
             </a>
             <!-- Locks category -->
-            <a class="pl-3 inline-block no-underline hover:text-black" href="#">
+            <a class="pl-3 inline-block no-underline hover:text-black" href="../categories/locks">
                 <i class="fas fa-lock"></i>
             </a>
             <!-- Land category -->
-            <a class="pl-3 inline-block no-underline hover:text-black" href="#">
+            <a class="pl-3 inline-block no-underline hover:text-black" href="../categories/land">
                 <i class="fas fa-mountain"></i>
             </a>
             <!-- Lemonade category -->
-            <a class="pl-3 inline-block no-underline hover:text-black" href="#">
+            <a class="pl-3 inline-block no-underline hover:text-black" href="../categories/lemonade">
                 <i class="fas fa-lemon"></i>
             </a>
             <!-- Lipstick category -->
-            <a class="pl-3 inline-block no-underline hover:text-black" href="#">
+            <a class="pl-3 inline-block no-underline hover:text-black" href="../categories/lipstick">
                 <i class="far fa-smile"></i>
             </a>
             <!-- Laser Pointer category -->
-            <a class="pl-3 inline-block no-underline hover:text-black" href="#">
+            <a class="pl-3 inline-block no-underline hover:text-black" href="../categories/laser-pointers">
                 <i class="fas fa-pen"></i>
             </a>
         </div>
     </div>
 
-    <section class="bg-white py-8">
-        <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12">
-            {{{ body }}}
-        </div>
-    </section>
+
+    {{{ body }}}
+
     <!-- footer -->
     <footer class="container mx-auto bg-white py-8 border-t border-gray-400">
         <div class="container flex px-3 py-8 ">
@@ -146,6 +145,7 @@
         </div>
     </footer>
 
+    <script src="/js/mainPage.js"></script>
 </body>
 
 </html>
