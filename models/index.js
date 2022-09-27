@@ -1,4 +1,3 @@
-const Favorite = require('./Favorite');
 const Listing = require('./Listing');
 const User = require('./User');
 const Category = require('./Category');
@@ -11,4 +10,4 @@ Listing.belongsTo(User, {
 
 Category.hasMany(Listing);
 
-module.exports = { Listing, User, Favorite, Category };
+module.exports = { Listing, User, Category };
