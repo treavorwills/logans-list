@@ -14,3 +14,26 @@
 .hover\:grow:hover {
     transform: scale(1.02);
 }
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    top: 100%;
+    left: 50%;
+    margin-left: -60px;
+    color: black;
+    text-align: center;
+    border-radius: 3px;
+    padding: 3px 0;
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
