@@ -78,6 +78,7 @@ router.get('/:id', async (req, res) => {
   try {
     const userData = await User.findByPk(req.params.id, {
       attributes: { exclude: ['password'] },
+      include: [{ model: Listing }],
     });
     res.status(200).json(userData);
   } catch (err) {
