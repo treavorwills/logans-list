@@ -79,4 +79,5 @@ const newListingHandler = async (image_url) => {
     }
 };
 
+
 document.getElementById('newListingForm').addEventListener('submit', imageHandler);
