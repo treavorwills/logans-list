@@ -2,16 +2,13 @@ const Favorite = require('./Favorite');
 const Listing = require('./Listing');
 const User = require('./User');
 const Category = require('./Category');
-const Image = require('./Image');
 
-User.hasMany(Favorite);
+User.hasMany(Listing);
 
-Listing.hasOne(User);
-
-Favorite.hasOne(Listing);
-
-Favorite.hasMany(User);
+Listing.belongsTo(User, {
+    foreignKey: 'user_id'
+});
 
 Category.hasMany(Listing);
 
-module.exports = { Listing, User, Favorite, Category, Image };
+module.exports = { Listing, User, Favorite, Category };
