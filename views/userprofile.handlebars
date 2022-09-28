@@ -27,10 +27,24 @@
                 <!-- Profile Card -->
                 <div class="bg-slate-300 p-3">
                     <div class="image overflow-hidden">
-                        <img class="h-auto w-full mx-auto rounded-lg"
-                            src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
-                            alt="">
+                        <img class="h-auto w-full mx-auto rounded-lg" src={{profile_pic}}><br>
                     </div>
+                    <label>Choose a Profile Picture: </label>
+                    <form id="profilePics">
+                        <select
+                            class="h-full form-control relative flex-auto min-w-0 block w-full mt-5 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 hover:grow hover:shadow-lg focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
+                            id="profilePicsC" name="profilePic">
+                            <option value="1">Nick 1</option>
+                            <option value="2">Nick 2</option>
+                            <option value="3">Nick 3</option>
+                            <option value="4">Bill 1</option>
+                            <option value="5">Bill 2</option>
+                            <option value="6">Steven 1</option>
+                        </select><br>
+                        <input
+                            class="btn inline-block px-3 py-1 border-2 border-black text-black text-sm font-medium leading-tight uppercase hover:bg-white hover:grow hover:shadow-lg focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                            type="submit" value="Submit">
+                    </form>
 
                     <h1 class="text-gray-900 font-bold text-2xl leading-8 my-1 mt-5 mb-5">{{name}}</h1>
                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md"

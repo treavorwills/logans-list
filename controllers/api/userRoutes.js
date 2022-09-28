@@ -86,28 +86,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// Update a users info
-router.put('/:id', async (req, res) => {
-  try {
-    const updatedUser = await User.update(
-      {
-        name: req.body.name,
-        email: req.body.email,
-        password: req.body.password
-      },
-      {
-        where: {
-          id: req.params.id,
-        },
-      }
-    );
-
-    res.status(200).json(updatedUser);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 //Delete a user
 router.delete('/:id', async (req, res) => {
   try {
@@ -120,6 +98,28 @@ router.delete('/:id', async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+});
+
+//Update Profile Pic
+router.put('/pic', async (req, res) => {
+  console.log('hi');
+  try {
+    const newPic = await User.update(
+      {
+        profile_pic: req.body.profile_pic
+      },
+      {
+        where: {
+          id: req.session.user_id,
+        },
+      }
+    );
+    res.status(200).json(newPic);
+  } catch (err) {
+    res.status(500).json(err.message);
+    console.log(err)
+  }
+
 });
 
 module.exports = router;
