@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Listing, User, Category } = require('../models')
 const withAuth = require('../utils/auth');
+const { Op } = require('sequelize')
 
 //Render the homepage with listings
 router.get('/', async (req, res) => {
@@ -18,6 +19,35 @@ router.get('/', async (req, res) => {
     //     logged_in: req.session.logged_in
     // });
 });
+
+//Render the listings that match the search results
+router.get('/search/:id', async (req, res) => {
+    let searchTerm = req.params.id;
+    const listingData = await Listing.findAll({
+        include: [{ model: User, attributes: ['name'] }],
+        where: {
+            name: {[Op.like]: `%${searchTerm}%`},
+        },
+    });
+    const listings = listingData.map((listing) => listing.get({ plain: true }));
+        if (listings.length != 0) {
+            res.render('./partials/listings', {
+                listings,
+                logged_in: req.session.logged_in
+            })
+        }
+        else {
+            res.render('./partials/noListings', {
+                listings,
+                logged_in: req.session.logged_in
+            })
+        }
+    // res.render('./partials/listings', {
+    //     listings,
+    //     logged_in: req.session.logged_in
+    // });
+});
+
 
 //Render page for the listing you choose 
 router.get('/listing/:id', async (req, res) => {
