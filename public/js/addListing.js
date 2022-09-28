@@ -7,8 +7,12 @@ document.getElementById("fileSubmit").onchange = (event) => {
     reader.onload = () => {
         document.getElementById('display').src = reader.result;
     };
-    console.log('image', image);
-    imageBlob = image;
+    if (image.size > 1048576) {
+        alert("File is to large, please choose a new one")
+        imageBlob = null;
+    } else {
+        imageBlob = image;
+    }
 }
 
 const imageHandler = async (event) => {
