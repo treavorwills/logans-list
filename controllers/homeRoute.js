@@ -13,17 +13,13 @@ router.get('/', async (req, res) => {
         listings,
         logged_in: req.session.logged_in
     });
-    // res.render('./partials/listings', {
-    //     listings,
-    //     logged_in: req.session.logged_in
-    // });
 });
 
 //Render page for the listing you choose 
 router.get('/listing/:id', async (req, res) => {
     try {
         const listingData = await Listing.findByPk(req.params.id, {
-            include: [{ model: User, attributes: ['name'] }]
+            include: [{ model: User, attributes: ['name', 'email'] }]
         });
         const listing = listingData.get({ plain: true })
 
@@ -31,17 +27,18 @@ router.get('/listing/:id', async (req, res) => {
             ...listing,
             logged_in: req.session.logged_in
         });
-
     } catch (err) {
         res.status(500).json(err);
     }
+
 });
 
 //Render the profile page with listings
 router.get('/profile', withAuth, async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {
-            attributes: { exclude: ['password'] }
+            attributes: { exclude: ['password'] },
+            include: [{ model: Listing }],
         });
         const user = userData.get({ plain: true });
 
@@ -131,7 +128,5 @@ router.get('/signup', (req, res) => {
 router.get('/add', (req, res) => {
     res.render('addlisting');
 });
-
-
 
 module.exports = router;
