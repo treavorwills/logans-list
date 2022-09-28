@@ -29,7 +29,7 @@ const listingData = [
     },
     {
         name: 'Stool',
-        description: 'not my real stool, but my step stool',
+        description: 'not my real stool, but my step stool. For cool cats!',
         price: 123,
         image_url: 'https://cdn.pixabay.com/photo/2016/12/07/14/35/stool-1889581_960_720.jpg',
         seller_id: 3,

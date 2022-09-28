@@ -22,7 +22,10 @@ router.get('/search/:id', async (req, res) => {
     const listingData = await Listing.findAll({
         include: [{ model: User, attributes: ['name'] }],
         where: {
-            name: {[Op.like]: `%${searchTerm}%`},
+            [Op.or]: [
+            {description: {[Op.like]: `%${searchTerm}%`}},
+            {name: {[Op.like]: `%${searchTerm}%`}}
+            ]
         },
     });
     const listings = listingData.map((listing) => listing.get({ plain: true }));
