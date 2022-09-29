@@ -2,28 +2,15 @@ const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection.js');
 
-class Listing extends Model { }
+class Favorite extends Model {}
 
-Listing.init(
+Favorite.init(
     {
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
-        },
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        description: {
-            type: DataTypes.STRING,
-        },
-        price: {
-            type: DataTypes.INTEGER,
-            validate: {
-                isDecimal: true,
-            }
         },
         user_id: {
             type: DataTypes.INTEGER,
@@ -32,15 +19,12 @@ Listing.init(
                 key: 'id',
             }
         },
-        category_id: {
+        listing_id: {
             type: DataTypes.INTEGER,
             refrences: {
-                model: 'category',
+                model: 'listing',
                 key: 'id',
             }
-        },
-        image_url: {
-            type: DataTypes.STRING,
         },
     },
     {
@@ -48,8 +32,9 @@ Listing.init(
         timestamps: true,
         freezeTableName: true,
         underscored: true,
-        modelName: 'listing',
-    }
+        modelName: 'favorite',
+    }  
 );
 
-module.exports = Listing;
+
+module.exports = Favorite;

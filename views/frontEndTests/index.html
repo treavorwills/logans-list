@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Logan's List</title>
+    <script src="https://kit.fontawesome.com/1a76f66fbe.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
+
+    <!--Nav Bar-->
+    <nav id="header" class="w-full z-30 top-0 py-1">
+        <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
+            <!-- Menu bar when screen is smallest option -->
+            <label for="menu-toggle" class="cursor-pointer md:hidden block hover:text-black">
+                <title>menu</title>
+                <i class="fas fa-bars"></i>
+            </label>
+            <input class="hidden" type="checkbox" id="menu-toggle" />
+
+            <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
+                <nav>
+                    <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
+                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
+                                href="#">Shop</a></li>
+                        <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
+                                href="#about">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="order-1 md:order-2">
+                <a class="flex items-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl "
+                    href="#">
+                    LOGAN'S LIST
+                </a>
+            </div>
+
+            <div class="order-2 md:order-3 flex items-center" id="nav-content">
+                <!-- profile page -->
+                <a class="inline-block no-underline hover:text-black" href="#">
+                    <i class="fas fa-user" width="24" height="24" viewBox="0 0 24 24"></i>
+                </a>
+                <!-- favorites page -->
+                <a class="pl-3 inline-block no-underline hover:text-black" href="#">
+                    <i class="fas fa-sign-out" width="24" height="24" viewBox="0 0 24 24"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- search bar -->
+    <div class="flex justify-center w-full mt-10 h-12">
+        <div class="w-4/6 mx-10 md:w-1/2 md:mx-0 lg:w-1/3 h-full">
+            <!--Direct parent to the search box input and search button-->
+            <div class="input-group relative flex flex-nowrap items-stretch h-full w-full mb-4">
+                <!--Search box input -->
+                <input id="parameters" type="search"
+                    class="h-full form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 hover:grow hover:shadow-lg focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
+                    placeholder="Search..." aria-label="Search" aria-describedby="button-addon3">
+                <!--Search button -->
+                <button
+                    class="btn inline-block px-6 py-2 border-2 border-black text-black text-lg font-medium leading-tight uppercase hover:bg-white hover:grow hover:shadow-lg focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                    type="button" id="button-addon3">Search</button>
+            </div>
+        </div>
+    </div>
+    <!-- Categories section -->
+    <div class="order-2 mt-5 md:order-3 flex justify-center" id="categories">
+        <!-- Lamp category -->
+        <a class="tooltip inline-block no-underline hover:text-black" href="#">
+            <span class="tooltiptext">Lamp</span>
+            <i class="fas fa-lightbulb"></i>
+        </a>
+        <!-- Live animal category -->
+        <a class="tooltip pl-3 inline-block no-underline hover:text-black" href="#">
+            <span class="tooltiptext">Live animal</span>
+            <i class="fas fa-paw"></i>
+        </a>
+        <!-- ladder category -->
+        <a class="tooltip pl-3 inline-block no-underline hover:text-black" href="#">
+            <span class="tooltiptext">Ladder</span>
+            <i class="fas fa-swimming-pool"></i>
+        </a>
+        <!-- Locomotive category -->
+        <a class="pl-3 inline-block no-underline hover:text-black" href="#">
+            <i class="fas fa-train"></i>
+        </a>
+        <!-- Locks category -->
+        <a class="pl-3 inline-block no-underline hover:text-black" href="#">
+            <i class="fas fa-lock"></i>
+        </a>
+        <!-- Land category -->
+        <a class="pl-3 inline-block no-underline hover:text-black" href="#">
+            <i class="fas fa-mountain"></i>
+        </a>
+        <!-- Lemonade category -->
+        <a class="pl-3 inline-block no-underline hover:text-black" href="#">
+            <i class="fas fa-lemon"></i>
+        </a>
+        <!-- Lipstick category -->
+        <a class="pl-3 inline-block no-underline hover:text-black" href="#">
+            <i class="far fa-smile"></i>
+        </a>
+        <!-- Laser Pointer category -->
+        <a class="pl-3 inline-block no-underline hover:text-black" href="#">
+            <i class="fas fa-pen"></i>
+        </a>
+    </div>
+    <!-- all listings -->
+    <section class="bg-white py-8">
+
+        <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12 border-2">
+
+            <div class="w-full md:w-1/3 xl:w-1/4 p-6 border-4">
+                <a href="#" class="flex flex-col">
+                    <img class="hover:grow hover:shadow-lg rounded-lg"
+                        src="https://images.unsplash.com/photo-1555982105-d25af4182e4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
+                    <div class="pt-3 flex items-center justify-between">
+                        <p class="">Product Name</p>
+                        <i class="far fa-heart text-gray-500 hover:text-black"></i>
+                    </div>
+                    <p class="pt-1 text-gray-900">£9.99</p>
+                </a>
+            </div>
+
+            <div class="w-full md:w-1/3 xl:w-1/4 p-6">
+                <a href="#" class="flex flex-col">
+                    <img class="hover:grow hover:shadow-lg rounded-lg"
+                        src="https://images.unsplash.com/photo-1508423134147-addf71308178?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
+                    <div class="pt-3 flex items-center justify-between">
+                        <p class="">Product Name</p>
+                        <i class="far fa-heart text-gray-500 hover:text-black"></i>
+                    </div>
+                    <p class="pt-1 text-gray-900">£9.99</p>
+                </a>
+            </div>
+
+            <div class="w-full md:w-1/3 xl:w-1/4 p-6">
+                <a href="#" class="flex flex-col">
+                    <img class="hover:grow hover:shadow-lg"
+                        src="https://images.unsplash.com/photo-1449247709967-d4461a6a6103?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
+                    <div class="pt-3 flex items-center justify-between">
+                        <p class="">Product Name</p>
+                        <i class="far fa-heart text-gray-500 hover:text-black"></i>
+                    </div>
+                    <p class="pt-1 text-gray-900">£9.99</p>
+                </a>
+            </div>
+
+            <div class="w-full md:w-1/3 xl:w-1/4 p-6">
+                <a href="#" class="flex flex-col">
+                    <img class="hover:grow hover:shadow-lg"
+                        src="https://images.unsplash.com/reserve/LJIZlzHgQ7WPSh5KVTCB_Typewriter.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
+                    <div class="pt-3 flex items-center justify-between">
+                        <p class="">Product Name</p>
+                        <i class="far fa-heart text-gray-500 hover:text-black"></i>
+                    </div>
+                    <p class="pt-1 text-gray-900">£9.99</p>
+                </a>
+            </div>
+
+            <div class="w-full md:w-1/3 xl:w-1/4 p-6">
+                <a href="#" class="flex flex-col">
+                    <img class="hover:grow hover:shadow-lg rounded"
+                        src="https://images.unsplash.com/photo-1467949576168-6ce8e2df4e13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
+                    <div class="pt-3 flex items-center justify-between">
+                        <p class="">Product Name</p>
+                        <i class="far fa-heart text-gray-500 hover:text-black"></i>
+                    </div>
+                    <p class="class=" pt-1 text-gray-900">£9.99</p>
+                </a>
+            </div>
+
+            <div class="w-full md:w-1/3 xl:w-1/4 p-6">
+                <a href="#" class="flex flex-col">
+                    <img class="hover:grow hover:shadow-lg"
+                        src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
+                    <div class="pt-3 flex items-center justify-between">
+                        <p class="">Product Name</p>
+                        <i class="far fa-heart text-gray-500 hover:text-black"></i>
+                    </div>
+                    <p class="pt-1 text-gray-900">£9.99</p>
+                </a>
+            </div>
+
+            <div class="w-full md:w-1/3 xl:w-1/4 p-6">
+                <a href="#" class="flex flex-col">
+                    <img class="hover:grow hover:shadow-lg"
+                        src="https://images.unsplash.com/photo-1550837368-6594235de85c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
+                    <div class="pt-3 flex items-center justify-between">
+                        <p class="">Product Name</p>
+                        <i class="far fa-heart text-gray-500 hover:text-black"></i>
+                    </div>
+                    <p class="pt-1 text-gray-900">£9.99</p>
+                </a>
+            </div>
+
+            <div class="w-full md:w-1/3 xl:w-1/4 p-6">
+                <a href="#" class="flex flex-col">
+                    <img class="hover:grow hover:shadow-lg"
+                        src="https://images.unsplash.com/photo-1551431009-a802eeec77b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=400&q=80">
+                    <div class="pt-3 flex items-center justify-between">
+                        <p class="">Product Name</p>
+                        <i class="far fa-heart text-gray-500 hover:text-black"></i>
+                    </div>
+                    <p class="pt-1 text-gray-900">£9.99</p>
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+    <!-- footer -->
+    <footer class="container mx-auto bg-white py-8 border-t border-gray-400">
+        <div class="container px-3 py-8 ">
+            <div class="w-full mx-auto flex flex-wrap">
+                <div class="flex w-full lg:w-1/2 ">
+                    <div class="px-3 md:px-0">
+                        <h3 class="font-bold text-gray-900">About</h3>
+                        <p class="py-4">
+                            Logan's List is just the site you need to sell all your "L" related items. Have fun!
+                        </p>
+                    </div>
+                </div>
+                <div class="flex w-full lg:w-1/2 lg:justify-end lg:text-right">
+                    <div class="px-3 md:px-0">
+                        <h3 class="font-bold text-gray-900">Love our site? See it here:</h3>
+                        <ul class="list-reset items-center pt-3">
+                            <li>
+                                <a class="inline-block no-underline hover:text-black hover:underline py-1"
+                                    href="https://github.com/treavorwills/logans-list">github.com/logans-list</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+<script src="index.js"></script>
+
+</html>

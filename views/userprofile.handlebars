@@ -1,0 +1,82 @@
+<style>
+    :root {
+        --main-color: #4a76a8;
+    }
+
+    .bg-main-color {
+        background-color: var(--main-color);
+    }
+
+    .text-main-color {
+        color: var(--main-color);
+    }
+
+    .border-main-color {
+        border-color: var(--main-color);
+    }
+</style>
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+{{#if logged_in}}
+<div>
+    <div class="container mx-auto my-5 p-5">
+        <div class="md:flex no-wrap md:-mx-2 ">
+            <!-- Left Side -->
+            <div class="w-full md:w-3/12 md:mx-2">
+                <!-- Profile Card -->
+                <div class="bg-slate-300 p-3">
+                    <div class="image overflow-hidden">
+                        <img class="h-auto w-full mx-auto rounded-lg" src={{profile_pic}}><br>
+                    </div>
+                    <label>Choose a Profile Picture: </label>
+                    <form id="profilePics">
+                        <select
+                            class="h-full form-control relative flex-auto min-w-0 block w-full mt-5 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 hover:grow hover:shadow-lg focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
+                            id="profilePicsC" name="profilePic">
+                            <option value="1">Nick 1</option>
+                            <option value="2">Nick 2</option>
+                            <option value="3">Nick 3</option>
+                            <option value="4">Bill 1</option>
+                            <option value="5">Bill 2</option>
+                            <option value="6">Steven 1</option>
+                        </select><br>
+                        <input
+                            class="btn inline-block px-3 py-1 border-2 border-black text-black text-sm font-medium leading-tight uppercase hover:bg-white hover:grow hover:shadow-lg focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                            type="submit" value="Submit">
+                    </form>
+
+                    <h1 class="text-gray-900 font-bold text-2xl leading-8 my-1 mt-5 mb-5">{{name}}</h1>
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md"
+                        id="newListingBtn">Add New Listing</button>
+
+
+
+
+                </div>
+                <!-- End of profile card -->
+                <div class="my-4"></div>
+
+
+            </div>
+            <!-- Right Side -->
+            <div class="w-full md:w-9/12 mx-2 h-64">
+                <!-- Profile tab -->
+                <!-- About Section -->
+                <div class="bg-white p-3 shadow-sm rounded-sm">
+                    <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
+                        {{> userListings}}
+                    </div>
+                    <div class="text-gray-700">
+                    </div>
+                    <div class="my-4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <a href="/login">You must login first to view this page</a>
+    {{/if}}
+
+    <script src="/js/addListingBtn.js"></script>
+    <script src="/js/deleteBtn.js"></script>
