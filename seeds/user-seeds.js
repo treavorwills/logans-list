@@ -4,9 +4,28 @@ const { User } = require('../models');
 const userData = [
     {
         name: 'Nicolas Cage',
-        email: 'ghostRider@gmail.com',
-        password: 'declarationOfIndependence',
-        profile_pic: 'https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg',
+        email: 'nicolascage@gmail.com',
+        password: 'nicolascage'
+    },
+    {
+        name: 'Jim Jones',
+        email: 'jimjones@gmail.com',
+        password: 'jimjones',
+    },
+    {
+        name: 'Steve Miller',
+        email: 'stevemiller@gmail.com',
+        password: 'stevemiller',
+    },
+    {
+        name: 'Bill Smith',
+        email: 'billsmith@gmail.com',
+        password: 'billsmith',
+    },
+    {
+        name: 'Logan Lester',
+        email: 'loganlester@gmail.com',
+        password: 'loganlester',
     },
 ];
 
