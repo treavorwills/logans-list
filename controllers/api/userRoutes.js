@@ -1,10 +1,38 @@
 const router = require('express').Router();
+const xss = require("xss");
 const { User, Listing } = require('../../models');
 
 //Create new user
 router.post('/', async (req, res) => {
   try {
-    const userData = await User.create(req.body);
+    const nameS = req.body.name;
+    const passwordS = req.body.password;
+    const emailS = req.body.email;
+
+    const nameX = xss(nameS, {
+      whiteList: {},
+      stripIgnoreTag: true,
+      stripIgnoreTagBody: ["script"],
+  });
+
+    const passwordX = xss(passwordS, {
+      whiteList: {},
+      stripIgnoreTag: true,
+      stripIgnoreTagBody: ["script"],
+  });
+
+    const emailX = xss(emailS, {
+      whiteList: {},
+      stripIgnoreTag: true,
+      stripIgnoreTagBody: ["script"],
+  });
+
+  
+    const userData = await User.create({
+      name: nameX,
+      password: passwordX,
+      email: emailX,
+    });
 
     req.session.save(() => {
       req.session.user_id = userData.id;

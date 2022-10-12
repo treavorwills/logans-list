@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const xss = require("xss");
 const { Listing, User } = require('../../models');
 
 module.exports = router;
@@ -37,8 +38,48 @@ router.get('/:id', async (req, res) => {
 // Create a new Lisitng
 router.post('/', async (req, res) => {
     try {
+        const nameS = req.body.name;
+        const descriptionS = req.body.description;
+        const priceS = req.body.price;
+        const category_idS = req.body.category_id;
+        const image_urlS = req.body.image_url; 
+
+        const nameX = xss(nameS, {
+            whiteList: {},
+            stripIgnoreTag: true,
+            stripIgnoreTagBody: ["script"],
+        });
+
+        const descriptionX = xss(descriptionS, {
+            whiteList: {},
+            stripIgnoreTag: true,
+            stripIgnoreTagBody: ["script"],
+        });
+
+        const priceX = xss(priceS, {
+            whiteList: {},
+            stripIgnoreTag: true,
+            stripIgnoreTagBody: ["script"],
+        });
+
+        const category_idX = xss(category_idS, {
+            whiteList: {},
+            stripIgnoreTag: true,
+            stripIgnoreTagBody: ["script"],
+        });
+
+        const image_urlX = xss(image_urlS, {
+            whiteList: {},
+            stripIgnoreTag: true,
+            stripIgnoreTagBody: ["script"],
+        });
+
         const newListing = await Listing.create({
-            ...req.body,
+            name: nameX,
+            description: descriptionX,
+            price: priceX,
+            category_id: category_idX,
+            image_url: image_urlX,
             user_id: req.session.user_id,
         });
         res.status(200).json(newListing);
